@@ -1,2 +1,12 @@
 # search_feature_test
-Run automate script by this command on terminal:  robot --outputdir .\result  .\testcases
+> Before run the automation script, you should install these libralies: 
+> - RequestsLibrary
+> - Collections
+> - JSONLibrary
+> - SeleniumLibrary
+> - RPA.Browser.Selenium
+> - BuiltIn
+> 
+> Run the automatation script by this command on terminal: 
+>  
+>> `robot --outputdir .\result  .\testcases`
