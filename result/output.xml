@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on win32)" generated="20220712 21:34:33.313" rpa="false" schemaversion="2">
+<suite id="s1" name="Testcases" source="C:\Aum\central_test\testcases">
+<suite id="s1-s1" name="Api Search Product Test Cases" source="C:\Aum\central_test\testcases\api_search_product_test_cases.robot">
+<test id="s1-s1-t1" name="TC006 Verify result in case search product by encoded eligible product name in Thai">
+<kw name="Input encoded eligible product name in Thai in searchQuery parameter" library="api_search_product_keywords">
+<arg>${product_name_th}</arg>
+<kw name="Set Query Parameter for API Search" library="api_search_product_keywords">
+<arg>${search_query}</arg>
+<arg>${limit}</arg>
+<arg>${page}</arg>
+<arg>${store_id}</arg>
+<arg>${x_subject_id}</arg>
+<arg>${price_range}</arg>
+<arg>${visibility}</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${query_param}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220712 21:34:33.653" level="INFO">${query_param} = {}</msg>
+<status status="PASS" starttime="20220712 21:34:33.653" endtime="20220712 21:34:33.653"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${query_param}</arg>
+<arg>searchQuery=${search_query}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20220712 21:34:33.653" endtime="20220712 21:34:33.654"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${query_param}</arg>
+<arg>limit=${limit}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20220712 21:34:33.654" endtime="20220712 21:34:33.654"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${query_param}</arg>
+<arg>page=${page}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20220712 21:34:33.654" endtime="20220712 21:34:33.654"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${query_param}</arg>
+<arg>store_id=${store_id}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20220712 21:34:33.654" endtime="20220712 21:34:33.654"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${query_param}</arg>
+<arg>x_subject_id=${x_subject_id}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20220712 21:34:33.654" endtime="20220712 21:34:33.655"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${query_param}</arg>
+<arg>price_range=${price_range}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20220712 21:34:33.655" endtime="20220712 21:34:33.655"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${query_param}</arg>
+<arg>visibility=${visibility}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20220712 21:34:33.655" endtime="20220712 21:34:33.655"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${params}</arg>
+<arg>${query_param}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220712 21:34:33.656" level="INFO">${params} = {'searchQuery': 'หม้อไฟต้ม', 'limit': '45', 'page': '1', 'store_id': '3', 'x_subject_id': 'pxmXKt5Tab9ssoBj8I72tRXikdIslt5Z', 'price_range': '1', 'visibility': '4'}</msg>
+<status status="PASS" starttime="20220712 21:34:33.655" endtime="20220712 21:34:33.656"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${params}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220712 21:34:33.656" endtime="20220712 21:34:33.657"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:33.652" endtime="20220712 21:34:33.657"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:33.652" endtime="20220712 21:34:33.657"/>
+</kw>
+<kw name="Send API Search Request" library="api_search_product_keywords">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Params: ${params}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220712 21:34:33.658" endtime="20220712 21:34:33.658"/>
+</kw>
+<kw name="Get Request API" library="api_search_product_keywords">
+<var>${response_body}</var>
+<arg>API-Search</arg>
+<arg>${host_url}</arg>
+<arg>${search_uri}</arg>
+<arg>${params}</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>${alias}</arg>
+<arg>${host_url}</arg>
+<arg>disable_warnings=1</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220712 21:34:33.658" level="INFO">Creating Session using : alias=API-Search, url=https://www.officemate.co.th, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220712 21:34:33.658" endtime="20220712 21:34:33.659"/>
+</kw>
+<kw name="Get On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alias=${alias}</arg>
+<arg>url=${uri}</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=Anything</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220712 21:34:33.971" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%AB%E0%B8%A1%E0%B9%89%E0%B8%AD%E0%B9%84%E0%B8%9F%E0%B8%95%E0%B9%89%E0%B8%A1&amp;limit=45&amp;page=1&amp;store_id=3&amp;x_subject_id=pxmXKt5Tab9ssoBj8I72tRXikdIslt5Z&amp;price_range=1&amp;visibility=4 
+ path_url=/api/search/products?searchQuery=%E0%B8%AB%E0%B8%A1%E0%B9%89%E0%B8%AD%E0%B9%84%E0%B8%9F%E0%B8%95%E0%B9%89%E0%B8%A1&amp;limit=45&amp;page=1&amp;store_id=3&amp;x_subject_id=pxmXKt5Tab9ssoBj8I72tRXikdIslt5Z&amp;price_range=1&amp;visibility=4 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220712 21:34:33.972" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%AB%E0%B8%A1%E0%B9%89%E0%B8%AD%E0%B9%84%E0%B8%9F%E0%B8%95%E0%B9%89%E0%B8%A1&amp;limit=45&amp;page=1&amp;store_id=3&amp;x_subject_id=pxmXKt5Tab9ssoBj8I72tRXikdIslt5Z&amp;price_range=1&amp;visibility=4 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"c4a4e-8FXz++OtWP78BHEdCSC0I/bWW6Q"', 'Content-Encoding': 'gzip', 'Cache-Control': 'public, max-age=60', 'Expires': 'Tue, 12 Jul 2022 14:35:33 GMT', 'Date': 'Tue, 12 Jul 2022 14:34:33 GMT', 'Content-Length': '67867', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Server-Timing': 'cdn-cache; desc=HIT, edge; dur=1'} 
+ body={"products":{"total_count":952,"products":[{"id":92016,"type_id":"simple","name":"หม้อไฟยอดฮิต","brand_name":"B2S","small_image":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images6f1d6f1d7e91ee4feafef9f960ad9ec2d71fc6b38c8c_mkp0306524dummy.jpg","image":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images6f1d6f1d7e91ee4feafef9f960ad9ec2d71fc6b38c8c_mkp0306524dummy.jpg","thumbnail":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images6f1d6f1d7e91ee4feafef9f960ad9ec2d71fc6b38c8c_mkp0306524dummy.jpg","url_key":"b2s-หม้อไฟยอดฮิต-mkp0306524","attribute_set_id":4,"visibility":4,"status":1,"category":[{"category_id":2,"level":1,"parent_id":1,"url_key":"default-category"},{"category_id":287,"name":"School &amp; Entertainment","level":2,"parent_id":2,"url_key":"education-entertainment","url_path":"education-entertainment","is_parent":true},{"category_id":793,"name":"Thai Books","level":3,"parent_id":287,"url_key":"thai-books","url_path":"education-entertainment/thai-books","is_parent":true},{"category_id":1222,"name":"Lifestyle Books","level":4,"parent_id":793,"url_key":"lifestyle-books","url_path":"education-entertainment/thai-books/lifestyle-books","is_parent":true}],"price":109,"tier_prices":[{"price":103,"original_price":109,"customer_group_id":0,"is_discount":true},{"price":103,"original_price":109,"customer_group_id":1,"is_discount":true},{"price":103,"original_price":109,"customer_group_id":2,"is_discount":true},{"price":103,"original_price":109,"customer_group_id":3,"is_discount":true},{"price":103,"original_price":109,"customer_group_id":4,"is_discount":true},{"price":103,"original_price":109,"customer_group_id":5,"is_discount":true}],"special_price":103,"special_from_date":"2022-07-01T00:00:00","special_to_date":"2022-07-31T23:59:59","stock":{"qty":2,"is_in_stock":true},"score":5.8446584,"custom_attributes_option":[{"attribute_code":"small_image","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images6f1d6f1d7e91ee4feafef9f960ad9ec2d71fc6b38c8c_mkp0306524dummy.jpg","position":0},{"attribute_code":"special_from_date","value":"2022-07-01 00:00:00","position":0},{"attribute_code":"marketplace_seller","value":"B2S","position":0},{"attribute_code":"visibility","value":4,"position":0},{"attribute_code":"percent_discount","value":6,"position":0},{"attribute_code":"price_inc_tax","value":109,"position":0},{"attribute_code":"central_url_generator_flag","value":"Url Generator Flag","position":0},{"attribute_code":"created_at","value":"2020-06-01 07:32:38","position":0},{"attribute_code":"special_price","value":103,"position":0},{"attribute_code":"is_bestdeal","value":"Is Best Deal","position":0},{"attribute_code":"ts_dimensions_width","value":20,"position":0},{"attribute_code":"ofm_product_type","value":11,"position":0},{"attribute_code":"description","value":"หนังสือหม้อไฟยอดฮิต เล่มนี้ได้ทำการรวบรวมสูตรหม้อไฟในแบบต่าง ๆ ไม่ว่าจะเป็น หม้อไฟเนื้อสัตว์ หม้อไฟทะเล หม้อไฟสารพัดเส้น หรือหม้อไฟขนมหวาน ก็จัดมาให้หลากหลายสัญชาติให้คุณผู้อ่านได้เลือกนำไปลองทำกันตามใจชอบ","position":0},{"attribute_code":"ts_dimensions_length","value":30,"position":0},{"attribute_code":"special_expires_at","value":"2022-07-31 23:59:59","position":0},{"attribute_code":"package_weight","value":0.38,"position":0},{"attribute_code":"ts_dimensions_height","value":11,"position":0},{"attribute_code":"updated_at","value":"2022-06-12 04:42:07","position":0},{"attribute_code":"has_options","value":false,"position":0},{"attribute_code":"image","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images6f1d6f1d7e91ee4feafef9f960ad9ec2d71fc6b38c8c_mkp0306524dummy.jpg","position":0},{"attribute_code":"warranty_tf","value":"2","position":0},{"attribute_code":"price_discount","value":5.5,"position":0},{"attribute_code":"shipping_methods","value":["ofm_standard"],"position":0},{"attribute_code":"status","value":"Enabled","position":0},{"attribute_code":"short_description","value":"หนังสือหม้อไฟยอดฮิต เล่มนี้ได้ทำการรวบรวมสูตรหม้อไฟในแบบต่าง ๆ ไม่ว่าจะเป็น หม้อไฟเนื้อสัตว์ หม้อไฟทะเล หม้อไฟสารพัดเส้น หรือหม้อไฟขนมหวาน ก็จัดมาให้หลากหลายสัญชาติให้คุณผู้อ่านได้เลือกนำไปลองทำกันตามใจชอบ","position":0},{"attribute_code":"special_to_date","value":"2022-07-31 23:59:59","position":0},{"attribute_code":"brand_name","value":"B2S","position":0},{"attribute_code":"search_keywords","value":"หม้อไฟยอดฮิต","position":0},{"attribute_code":"marketplace_product_type","value":"Marketplace","position":0},{"attribute_code":"special_price_inc_tax","value":103,"position":0},{"attribute_code":"marketplace_offer_id","value":"162545","position":0},{"attribute_code":"url_key","value":"b2s-หม้อไฟยอดฮิต-mkp0306524","values":["b2s-หม้อไฟยอดฮิต-mkp0306524"],"position":0},{"attribute_code":"product_group","value":"C","position":0},{"attribute_code":"required_options","value":false,"position":0},{"attribute_code":"tax_class_id","value":"Taxable Goods","position":0},{"attribute_code":"thumbnail","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images6f1d6f1d7e91ee4feafef9f960ad9ec2d71fc6b38c8c_mkp0306524dummy.jpg","position":0}],"custom_attributes":[{"attribute_code":"name","name":"name","label":"Product Name","value":"หม้อไฟยอดฮิต"},{"attribute_code":"image","name":"image","label":"Base","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images6f1d6f1d7e91ee4feafef9f960ad9ec2d71fc6b38c8c_mkp0306524dummy.jpg"},{"attribute_code":"small_image","name":"small_image","label":"Small","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images6f1d6f1d7e91ee4feafef9f960ad9ec2d71fc6b38c8c_mkp0306524dummy.jpg"},{"attribute_code":"thumbnail","name":"thumbnail","label":"Thumbnail","value":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images6f1d6f1d7e91ee4feafef9f960ad9ec2d71fc6b38c8c_mkp0306524dummy.jpg"},{"attribute_code":"url_key","name":"url_key","label":"URL Key","value":"b2s-หม้อไฟยอดฮิต-mkp0306524"},{"attribute_code":"warranty_tf","name":"warranty_tf","label":"Warranty","value":"2"},{"attribute_code":"shipping_methods","name":"shipping_methods","label":"Shipping Methods","value":"ofm_standard"},{"attribute_code":"marketplace_seller","name":"marketplace_seller","label":"Seller","value":"2278"},{"attribute_code":"marketplace_product_type","name":"marketplace_product_type","label":"Marketplace Product Type","value":"marketplace"},{"attribute_code":"product_group","name":"product_group","label":"Product Group","value":"c"},{"attribute_code":"search_keywords","name":"search_keywords","label":"ElasticSuite Search Keywords","value":"หม้อไฟยอดฮิต"},{"attribute_code":"description","name":"description","label":"Description","value":"หนังสือหม้อไฟยอดฮิต เล่มนี้ได้ทำการรวบรวมสูตรหม้อไฟในแบบต่าง ๆ ไม่ว่าจะเป็น หม้อไฟเนื้อสัตว์ หม้อไฟทะเล หม้อไฟสารพัดเส้น หรือหม้อไฟขนมหวาน ก็จัดมาให้หลากหลายสัญชาติให้คุณผู้อ่านได้เลือกนำไปลองทำกันตามใจชอบ"},{"attribute_code":"short_description","name":"short_description","label":"short description","value":"หนังสือหม้อไฟยอดฮิต เล่มนี้ได้ทำการรวบรวมสูตรหม้อไฟในแบบต่าง ๆ ไม่ว่าจะเป็น หม้อไฟเนื้อสัตว์ หม้อไฟทะเล หม้อไฟสารพัดเส้น หรือหม้อไฟขนมหวาน ก็จัดมาให้หลากหลายสัญชาติให้คุณผู้อ่านได้เลือกนำไปลองทำกันตามใจชอบ"},{"attribute_code":"marketplace_offer_id","name":"marketplace_offer_id","label":"Marketplace Offer Id","value":"162545"},{"attribute_code":"special_price","name":"special_price","label":"Special Price","value":"96.2617"},{"attribute_code":"ts_dimensions_length","name":"ts_dimensions_length","label":"Length","value":"30.0000"},{"attribute_code":"ts_dimensions_width","name":"ts_dimensions_width","label":"Width","value":"20.0000"},{"attribute_code":"ts_dimensions_height","name":"ts_dimensions_height","label":"Height","value":"11.0000"},{"attribute_code":"special_price_inc_tax","name":"special_price_inc_tax","label":"Special Price Include Tax","value":"103.0000"},{"attribute_code":"price_inc_tax","name":"price_inc_tax","label":"Price Include Tax","value":"109.0000"},{"attribute_code":"package_weight","name":"package_weight","label":"Package Weight","value":"0.3800"},{"attribute_code":"percent_discount","name":"percent_discount","label":"Percent Discount","value":"6.0000"},{"attribute_code":"special_from_date","name":"special_from_date","label":"Special Price From Date","value":"2022-06-30 17:00:00"},{"attribute_code":"special_to_date","name":"special_to_date","label":"Special Price To Date","value":"2022-07-31 16:59:59"},{"attribute_code":"special_expires_at","name":"special_expires_at","label":"Special Expires At","value":"2022-07-31 16:59:59"},{"attribute_code":"status","name":"status","label":"Enable Product","value":"1"},{"attribute_code":"visibility","name":"visibility","label":"Visibility","value":"4"},{"attribute_code":"tax_class_id","name":"tax_class_id","label":"Tax Class","value":"2"},{"attribute_code":"brand_name","name":"brand_name","label":"Brand","value":"4966"},{"attribute_code":"ofm_product_type","name":"ofm_product_type","label":"OFM Product Type","value":"11"},{"attribute_code":"is_new_product","name":"is_new_product","label":"New Product","value":"0"},{"attribute_code":"is_bestdeal","name":"is_bestdeal","label":"Is Best Deal","value":"1"},{"attribute_code":"central_url_generator_flag","name":"central_url_generator_flag","label":"Url Generator Flag","value":"1"}],"specification_attributes":[],"price_discount":5.5,"media_gallery_entries":[{"id":2239884,"media_type":"image","label":"","position":1,"disabled":false,"types":["image","small_image","thumbnail"],"file":"/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product-images6f1d6f1d7e91ee4feafef9f960ad9ec2d71fc6b38c8c_mkp0306524dummy.jpg"}],"marketplace_seller":"B2S","extension_attributes":{"t1c_redeemable_points":[824],"stock_item":{"item_id":59511312,"product_id":92016,"stock_id":3,"qty":2,"min_qty":1,"use_config_min_qty":true,"is_qty_decimal":false,"backorders":0,"use_config_backorders":true,"min_sale_qty":1,"use_config_min_sale_qty":1,"max_sale_qty":10000,"use_config_max_sale_qty... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20220712 21:34:33.973" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220712 21:34:33.659" endtime="20220712 21:34:33.973"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${http_response_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220712 21:34:33.974" level="INFO">${http_response_code} = 200</msg>
+<status status="PASS" starttime="20220712 21:34:33.973" endtime="20220712 21:34:33.974"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${http_response_code}</arg>
+<arg>${http_response_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220712 21:34:33.974" level="INFO">${http_response_code} = 200</msg>
+<status status="PASS" starttime="20220712 21:34:33.974" endtime="20220712 21:34:33.974"/>
+</kw>
+<msg timestamp="20220712 21:34:34.002" level="INFO">${response_body} = {'products': {'total_count': 952, 'products': [{'id': 92016, 'type_id': 'simple', 'name': 'หม้อไฟยอดฮิต', 'brand_name': 'B2S', 'small_image': '/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product...</msg>
+<status status="PASS" starttime="20220712 21:34:33.658" endtime="20220712 21:34:34.003"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Http Response Code: ${http_response_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220712 21:34:34.003" endtime="20220712 21:34:34.003"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Response Body: ${response_body}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220712 21:34:34.003" endtime="20220712 21:34:34.371"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${response_body}</arg>
+<arg>${response_body}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220712 21:34:34.401" level="INFO">${response_body} = {'products': {'total_count': 952, 'products': [{'id': 92016, 'type_id': 'simple', 'name': 'หม้อไฟยอดฮิต', 'brand_name': 'B2S', 'small_image': '/h/t/httpss3-ap-southeast-1.amazonaws.compim-prod-product...</msg>
+<status status="PASS" starttime="20220712 21:34:34.371" endtime="20220712 21:34:34.401"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:33.657" endtime="20220712 21:34:34.401"/>
+</kw>
+<kw name="Verify HTTP Status Code Should Be 200" library="api_search_product_keywords">
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${http_response_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20220712 21:34:34.402" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20220712 21:34:34.402" endtime="20220712 21:34:34.402"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:34.401" endtime="20220712 21:34:34.402"/>
+</kw>
+<kw name="Verify Search Term Value In Response Data Should Be Equal Product Name Keyword" library="api_search_product_keywords">
+<arg>${product_name_th}</arg>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${search_term_value_list}</var>
+<arg>${response_body}</arg>
+<arg>$.products.search_criteria.filterGroups[3].filters[0].value</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20220712 21:34:34.425" level="INFO">${search_term_value_list} = ['หม้อไฟต้ม']</msg>
+<status status="PASS" starttime="20220712 21:34:34.403" endtime="20220712 21:34:34.425"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${search_term_value}</var>
+<arg>${search_term_value_list}</arg>
+<arg>${0}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20220712 21:34:34.425" level="INFO">${search_term_value} = หม้อไฟต้ม</msg>
+<status status="PASS" starttime="20220712 21:34:34.425" endtime="20220712 21:34:34.425"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${search_term_value}</arg>
+<arg>${expected_product_name_keyword}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220712 21:34:34.425" endtime="20220712 21:34:34.426"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:34.402" endtime="20220712 21:34:34.426"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:33.651" endtime="20220712 21:34:34.426"/>
+</test>
+<status status="PASS" starttime="20220712 21:34:33.334" endtime="20220712 21:34:34.427"/>
+</suite>
+<suite id="s1-s2" name="Ui Search Product Test Cases" source="C:\Aum\central_test\testcases\ui_search_product_test_cases.robot">
+<kw name="Set Selenium Implicit Wait" library="RPA.Browser.Selenium" type="SETUP">
+<arg>${implicit_wait}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220712 21:34:34.704" endtime="20220712 21:34:34.704"/>
+</kw>
+<test id="s1-s2-t1" name="TC001_Verify_result_in_case_search_product_by_eligible_product_name_in_English">
+<kw name="Navigate To OfficeMate Homepage" library="ui_search_product_keywords">
+<kw name="Open Browser" library="RPA.Browser.Selenium">
+<arg>${homepage_url}</arg>
+<arg>browser=${web_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220712 21:34:34.705" level="INFO">Opening browser 'gc' to base url 'https://www.officemate.co.th/en'.</msg>
+<status status="PASS" starttime="20220712 21:34:34.705" endtime="20220712 21:34:41.951"/>
+</kw>
+<kw name="Maximize Browser Window" library="RPA.Browser.Selenium">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220712 21:34:41.951" endtime="20220712 21:34:42.161"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:34.705" endtime="20220712 21:34:42.162"/>
+</kw>
+<kw name="Input Eligible Product Name in English in Search Field" library="ui_search_product_keywords">
+<kw name="Select Frame" library="RPA.Browser.Selenium">
+<arg>//iframe[@classname='sp-fancybox-iframe sp-fancybox-skin sp-fancybox-iframe-11313']</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20220712 21:34:42.163" level="INFO">Selecting frame '//iframe[@classname='sp-fancybox-iframe sp-fancybox-skin sp-fancybox-iframe-11313']'.</msg>
+<status status="PASS" starttime="20220712 21:34:42.162" endtime="20220712 21:34:42.336"/>
+</kw>
+<kw name="Click Element When Visible" library="RPA.Browser.Selenium">
+<arg>${ads_close_button}</arg>
+<doc>Click element identified by ``locator``, once it becomes visible.</doc>
+<msg timestamp="20220712 21:34:42.354" level="INFO">Clicking element '//i[@class='fa fa-times element-close-button']'.</msg>
+<status status="PASS" starttime="20220712 21:34:42.337" endtime="20220712 21:34:42.424"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>${search_field}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220712 21:34:42.424" endtime="20220712 21:34:42.466"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>${search_field}</arg>
+<arg>${product_name_en}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220712 21:34:42.467" level="INFO">Typing text 'sunlight' into text field '//div/input[@class='_5vxBY _32CNv _2MLml']'.</msg>
+<status status="PASS" starttime="20220712 21:34:42.466" endtime="20220712 21:34:42.585"/>
+</kw>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<arg>../result/screenshots/Input_Eligible_Product_Name_in_English_in_Search_Field.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220712 21:34:43.219" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/Input_Eligible_Product_Name_in_English_in_Search_Field.png"&gt;&lt;img src="screenshots/Input_Eligible_Product_Name_in_English_in_Search_Field.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220712 21:34:42.585" endtime="20220712 21:34:43.220"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${search_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220712 21:34:43.220" level="INFO">Clicking element '//div[@id='btn-searchResultPage']'.</msg>
+<status status="PASS" starttime="20220712 21:34:43.220" endtime="20220712 21:34:43.396"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:42.162" endtime="20220712 21:34:43.396"/>
+</kw>
+<kw name="Verify Search Result Title" library="ui_search_product_keywords">
+<arg>Search results for "${product_name_en}"</arg>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>${search_result_title}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220712 21:34:43.397" endtime="20220712 21:34:43.837"/>
+</kw>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${actual_search_result_title}</var>
+<arg>${search_result_title}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220712 21:34:43.861" level="INFO">${actual_search_result_title} = Search results for "sunlight"</msg>
+<status status="PASS" starttime="20220712 21:34:43.838" endtime="20220712 21:34:43.861"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${expected_search_result_title}</arg>
+<arg>${actual_search_result_title}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220712 21:34:43.862" endtime="20220712 21:34:43.862"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:43.397" endtime="20220712 21:34:43.862"/>
+</kw>
+<kw name="Verify All Product Name Should Match Search Keyword" library="ui_search_product_keywords">
+<arg>${product_name_en}</arg>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>${all_product_name}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220712 21:34:43.863" endtime="20220712 21:34:45.017"/>
+</kw>
+<kw name="Get Element Count" library="RPA.Browser.Selenium">
+<var>${total_product}</var>
+<arg>${all_product_name}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220712 21:34:45.024" level="INFO">${total_product} = 11</msg>
+<status status="PASS" starttime="20220712 21:34:45.017" endtime="20220712 21:34:45.024"/>
+</kw>
+<for flavor="IN">
+<var>${index}</var>
+<value>${total_product}</value>
+<iter>
+<var name="${index}">11</var>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${actual_product_name}</var>
+<arg>//a[@data-product-position='${index}']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220712 21:34:45.056" level="INFO">${actual_product_name} = sunlight Dish Washing Soap Lemon Turbo ถุง Yellow Color Size 550 ML.</msg>
+<status status="PASS" starttime="20220712 21:34:45.024" endtime="20220712 21:34:45.056"/>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<var>${result}</var>
+<arg>${actual_product_name}</arg>
+<arg>${expected_result}</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<msg timestamp="20220712 21:34:45.057" level="INFO">${result} = sunlight</msg>
+<status status="PASS" starttime="20220712 21:34:45.056" endtime="20220712 21:34:45.057"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:45.024" endtime="20220712 21:34:45.057"/>
+</iter>
+<status status="PASS" starttime="20220712 21:34:45.024" endtime="20220712 21:34:45.057"/>
+</for>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<arg>../result/screenshots/Search_Result_Input_Eligible_Product_Name_in_English.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220712 21:34:45.583" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/Search_Result_Input_Eligible_Product_Name_in_English.png"&gt;&lt;img src="screenshots/Search_Result_Input_Eligible_Product_Name_in_English.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220712 21:34:45.057" endtime="20220712 21:34:45.583"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:43.862" endtime="20220712 21:34:45.583"/>
+</kw>
+<kw name="Close Browser" library="RPA.Browser.Selenium" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220712 21:34:45.583" endtime="20220712 21:34:47.939"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:34.704" endtime="20220712 21:34:47.940"/>
+</test>
+<kw name="Close All Browsers" library="RPA.Browser.Selenium" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20220712 21:34:47.941" endtime="20220712 21:34:47.942"/>
+</kw>
+<status status="PASS" starttime="20220712 21:34:34.428" endtime="20220712 21:34:47.942"/>
+</suite>
+<status status="PASS" starttime="20220712 21:34:33.316" endtime="20220712 21:34:47.944"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Testcases">Testcases</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Api Search Product Test Cases">Testcases.Api Search Product Test Cases</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s2" name="Ui Search Product Test Cases">Testcases.Ui Search Product Test Cases</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220712 21:34:33.340" level="ERROR">Error in file 'C:\Aum\central_test\testcases\api_search_product_test_cases.robot' on line 4: Test library '..\libraries\encode_base64.py' does not exist.</msg>
+</errors>
+</robot>
