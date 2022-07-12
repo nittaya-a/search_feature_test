@@ -1,5 +1,5 @@
-# search_feature_test
-> Before run the automation script, you should install these libralies: 
+# Search Feature Test Script
+>1. Before run the automation script, you should install these libralies: 
 > - RequestsLibrary
 >> `pip install robotframework-requests`
 > - Collections
@@ -13,6 +13,6 @@
 > - BuiltIn
 >> `pip install robotframework`
 > 
-> Run the automatation script by this command on terminal: 
+>2. Run the automatation script by this command on terminal: 
 >  
 >> `robot --outputdir .\result  .\testcases`
